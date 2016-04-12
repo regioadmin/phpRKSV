@@ -1,5 +1,5 @@
 <?php
- class rksv
+ class RKSV
         {
         var $testvariable = "12345";
 
