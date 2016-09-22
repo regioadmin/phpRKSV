@@ -2,7 +2,7 @@ KOMSIS RESTful API Version 1.1
 ----------
 Stand: 22.09.2016
 
-API für den Zugriff auf die Immobiliendaten des Kommunalen Standortinformationssystems 
+API fÃ¼r den Zugriff auf die Immobiliendaten des Kommunalen Standortinformationssystems 
 KOMSIS - ein Produkt der Wallenberger und Linhard Regionalberatung GmbH.
 
 #### API-Endpunkte von www3.komsis.at (Production) bzw. dev.komsis.at (Development) 
@@ -10,7 +10,7 @@ Bei Verwendung der dev.komsis.at Endpunkte wird auf die Testdatenbank zugegriffe
  
 
 ##### GET immobilie/{objektid}/{ref}/{ip}  
-kompletter Datensatz einer Immobilie mit Objektdetaildaten, Objekdaten, Kontaktdaten, Widmungen, Gebäudezustand, Verkehrsinfrastruktur, Gebäudeinfrastruktur, Heizungsart, Brennstoffart, Bildern, Anhängen (Pdf,Word..), Regionen in der die Immobilie liegt, Referrer, Ablaufdatum 
+kompletter Datensatz einer Immobilie mit Objektdetaildaten, Objekdaten, Kontaktdaten, Widmungen, GebÃ¤udezustand, Verkehrsinfrastruktur, GebÃ¤udeinfrastruktur, Heizungsart, Brennstoffart, Bildern, AnhÃ¤ngen (Pdf,Word..), Regionen in der die Immobilie liegt, Referrer, Ablaufdatum 
     
     objektid: id des Objektes  
     ref: die aufrufende Quelle (M=Mostviertel Mitte, S=Standortfinder.at, H=komsis.at, X=Adminbereich, G=Gemeindehomepage, W=WOIWA)  
@@ -27,7 +27,7 @@ kompletter Datensatz einer Immobilie mit Objektdetaildaten, Objekdaten, Kontaktd
 ##### GET bezirke/alle/{bundesland}
 alle Bezirke des Bundeslands - egal, ob aktive Objekte vorhanden sind oder nicht
    
-    bundesland: entspricht erster Stelle der Gemeindekennzahl, 3=Nö, 6=Stmk ...  (siehe Anhang)
+    bundesland: entspricht erster Stelle der Gemeindekennzahl, 3=NÃ¶, 6=Stmk ...  (siehe Anhang)
   
 ###### Beispiel:
   ``api/v1/bezirke/alle/3``  
@@ -38,8 +38,8 @@ alle Bezirke des Bundeslands - egal, ob aktive Objekte vorhanden sind oder nicht
 ##### GET gemeinden/{code}/[{verbund}] 
 alle KOMSIS-Gemeinden in einem Bezirk/Verbund, die mindestens eine aktuelles Immobilienangebot haben
     
-    code: die ersten drei Stellen der Gemeindekennzahl (=Bezirk) oder 0 für alle
-    verbund: optionale Angabe eines Gemeindeverbunds, dreistelliger Code, z.B. VIE (siehe Wertevorrat) um Ergebis  auf Gemeinden aus Region Flughafen zu beschränken. Wenn ein Verbund angegeben ist, wird Parameter code ignoriert. Ein Vebund kann also aus Gemeinden verschiedener Bezirke bestehen
+    code: die ersten drei Stellen der Gemeindekennzahl (=Bezirk) oder 0 fÃ¼r alle
+    verbund: optionale Angabe eines Gemeindeverbunds, dreistelliger Code, z.B. VIE (siehe Wertevorrat) um Ergebis  auf Gemeinden aus Region Flughafen zu beschrÃ¤nken. Wenn ein Verbund angegeben ist, wird Parameter code ignoriert. Ein Vebund kann also aus Gemeinden verschiedener Bezirke bestehen
  
 ###### Beispiel:
   ``api/v1/gemeinden/311``  
@@ -52,7 +52,7 @@ alle aktiven KOMSIS-Gemeinden mit Link zum Bild des Standortbeauftragen in einem
     
     code: die erste Stelle der Gemeindekennzahl (=Bundesland)   
     komsis: 1=KOMSIS  
-    verbund: optionale Angabe eines Gemeindeverbunds, dreistelliger Code, z.B. VIE (siehe Wertevorrat) um Ergebis  auf Gemeinden aus Region Flughafen zu beschränken 
+    verbund: optionale Angabe eines Gemeindeverbunds, dreistelliger Code, z.B. VIE (siehe Wertevorrat) um Ergebis  auf Gemeinden aus Region Flughafen zu beschrÃ¤nken 
   
 ###### Beispiel:
   ``api/v1/aktivegemeinden/3/1``  
@@ -61,7 +61,7 @@ alle aktiven KOMSIS-Gemeinden mit Link zum Bild des Standortbeauftragen in einem
 ``[{"idnr":1358,"gort":"Friedberg","gplz":"8240","name":"Friedberg","kontaktperson":"Karin Hofer","gtelefon1":"03339\/25 110-10","fax":"03339\/25 110-20","email":"stadtgemeinde@friedberg.at","gstrasse":"Hauptplatz 20","homepage":"www.friedberg.at","oestatid":60706,"filename":"muster.jpg","url":"www3.komsis.at/34943/muster.jpg","hash":null},{"idnr":1359,"gort":"P\u00f6llau","gplz":"8225","name":"P\u00f6llau","kontaktperson":"unbekannt","gtelefon1":"03335\/2038","fax":"","email":"unbekannt@unbekannt.at","gstrasse":"Hauptplatz 3","homepage":"www.marktgemeinde-poellau.at","oestatid":62234,"filename":null,"hash":null}]``
 - - - - 
 ##### GET regionen  
-alle Bundesländer/Regionen, die mindestens ein aktuelles Objekt anbieten
+alle BundeslÃ¤nder/Regionen, die mindestens ein aktuelles Objekt anbieten
   
 ###### Beispiel:
   ``api/v1/regionen``  
@@ -73,12 +73,12 @@ alle Bundesländer/Regionen, die mindestens ein aktuelles Objekt anbieten
 alle aktuellen Objekte, die den Suchkriterien entsprechen, optional kann das Ergebnis mit dem Parameter "limit" begrenzt werden
     
     regionid: die erste Stellen der Gemeindekennzahl (=Bundesland)  
-    arrgemeindeid: ein Array der zu berücksichtigenden GemeindeIDs  
+    arrgemeindeid: ein Array der zu berÃ¼cksichtigenden GemeindeIDs  
     objektartid:  die Objektart(1=Gewerbegrund, 2=Gewerbeobjekt,3=Baugrund,4=Wohnobjekt)  
     miete: 1=ja, 0=nein  
     kauf: 1=ja, 0=nein  
-    code: zu suchender Objektcode (Ähnlichkeitsvergleich)
-    gruppe: Gruppenzugehörigkeit der Gemeinde (WOIWA, STAMA, LIS, KOMSIS oder null)
+    code: zu suchender Objektcode (Ã„hnlichkeitsvergleich)
+    gruppe: GruppenzugehÃ¶rigkeit der Gemeinde (WOIWA, STAMA, LIS, KOMSIS oder null)
     herkunftskennung: Datenquelle der Objekte (KOMSIS, ICO, SREAL, WIV, WAV oder null)
                       Datenquelle bezeichnet jene Organisation, die den DS eingepflegt hat, null=alle
     bezirk: ersten 3 Stellen des Gemeindecodes 
@@ -91,26 +91,27 @@ alle aktuellen Objekte, die den Suchkriterien entsprechen, optional kann das Erg
 ``[{"idnr":6774,"plz":"3580","ort":"Horn","grundflaeche":"583.00","bezeichnung":"Wohnobjekte","bezeichnung_abfrage":"Wohnung","oestatid":31109,"gemeindeid":124,"wohnflaeche":"150.00","adaptierungen":"Jugendstilville mit Garten","raeume":5,"objekttypid":2,"kaufpreis":"250000.00","kaufpreisoeffentlich":0,"objekttitel":"Jugendstilvilla im Stadtkern","picid":9351,"download":0,"pic":"124P5150018.JPG","pic_url":"dev.komsis.at\/_Resources\/Static\/Packages\/WL.Komsis\/thumbnails\/tn_124P5150018.JPG","laenge":15.6541268,"breite":48.66323,"objektartid":4}]``  
 Anmerkung: Feld "adaptierungen" im Ergebnis entspricht der Objektbeschreibung
 - - - - 
+
 ##### GET erweitertesuche/{arrregionid}/{arrbezirkid}/{arrgemeindeid}/{objektartid}/{miete}/{kauf}/{code}/{gruppe}/{herkunftskennung}/{wohnung}/{haus}/{bauerhaus}/{limit}/{datum}'
 alle aktuelle Objekte, die den Suchkriterien entsprechen ab dem Anlagedatum x 
     
     arrregionid: Array der Regionen (jeweils erste Stellen der Gemeindekennzahl entspricht dem Bundesland) 
     arrbezirkid: Array der Bezirke (jeweils ersten 3 Stellen der Gemeindekennzahl entsprechen dem Bezirk) oder null
-    arrgemeindeid: ein Array der zu berücksichtigenden GemeindeIDs oder null
+    arrgemeindeid: ein Array der zu berÃ¼cksichtigenden GemeindeIDs oder null
     objektartid:  die Objektart(1=Gewerbegrund, 2=Gewerbeobjekt,3=Baugrund,4=Wohnobjekt)  
     miete: 1=ja, 0=nein  
     kauf: 1=ja, 0=nein  
-    code: Objektcode (Ähnlichkeitsvergleich)
-    gruppe: Gruppenzugehörigkeit der Gemeinde (WOIWA, STAMA, LIS, KOMSIS oder null)
+    code: Objektcode (Ã„hnlichkeitsvergleich)
+    gruppe: GruppenzugehÃ¶rigkeit der Gemeinde (WOIWA, STAMA, LIS, KOMSIS oder null)
     herkunftskennung: Datenquelle der Objekte (KOMSIS, ICO, SREAL, WIV, WAV oder null)
                       Datenquelle bezeichnet jene Organisation, die den DS eingepflegt hat, null=alle
-    wohnung: bei Kategorie Wohnobjekt Subkategorie "Wohnung" berücksichtigen(1=ja, 0=nein)
-    haus: bei Kategorie Wohnobjekt Subkategorie "Haus" berücksichtigen (1=ja, 0=nein)
-    bauernhaus: bei Kategorie Wohnobjekt Subkategorie "Bauernhaus" berücksichtigen (1=ja, 0=nein)
+    wohnung: bei Kategorie Wohnobjekt Subkategorie "Wohnung" berÃ¼cksichtigen(1=ja, 0=nein)
+    haus: bei Kategorie Wohnobjekt Subkategorie "Haus" berÃ¼cksichtigen (1=ja, 0=nein)
+    bauernhaus: bei Kategorie Wohnobjekt Subkategorie "Bauernhaus" berÃ¼cksichtigen (1=ja, 0=nein)
     limit: optional, nur die letzten x Objekte anfordern 
     datum: nur Objekte mit Anlagedatum >=datum selektieren (datum im Format yyyy-mm-dd)
   
-###### Beispiel (Häuser und Wohnungen aus dem ganzen Bezirk Baden (306) und aus den Gemeinden 31109/31123 aus dem Bezirk Horn (311) mit Anlagedatum nach 01.01.2016):
+###### Beispiel (HÃ¤user und Wohnungen aus dem ganzen Bezirk Baden (306) und aus den Gemeinden 31109/31123 aus dem Bezirk Horn (311) mit Anlagedatum nach 01.01.2016):
   ``api/v1/erweitertesuche/3/306,311/31109,31123/1/1/null/null/null/4/1/1/0/999/2016-01-01'``  
 
 ###### Ergebnis:
@@ -140,7 +141,7 @@ liefert von einem aktuellen Objekt die Objektdetails
 ``[{"0":{"bildid":71112,"bildid1":71113,"breite":0,"code":"ICS2100\/14125","code1":0,"code2":0,"email":"bettina.auer@immo-contract.com","geaendertvon":0,"grundflaeche":"0.00","herkunftskennung":"ICS","idnr":16523,"imported":1,"inseratstatus":0,"ipvomanleger":null,"klicks":33,"kontaktdatenoeffentlich":1,"laenge":0,"lage":0,"lis_key":"2100\/14125","markler":1,"mikana":1,"mikana1":0,"mikana2":0,"name1":"IMMO-CONTRACT Maklerges.m.b.H St.P\u00f6lten","objekttitel":"WG-taugliche Balkonwohnung mit Blick auf G\u00f6ttweig - BARRIEREFREI","ort":"Krems an der Donau","ort1":"St. P\u00f6lten","planid":0,"planid1":0,"plz":"3500","plz1":"3100","standortinfo":"Zentrum","strasse":null,"strasse1":"Brunngasse","telefon1":"43 \/ 50450\/270, 43\/664\/8191811","userId":0,"veroeffentlichungsart":1,"vorname1":"Frau Bettina Auer","www":"www.immocontract.com"},"gemeindeid":134,"objektartid":4,"ol":0,"ob":0,"gl":15.600371360779,"gb":48.411713122315,"code1":0,"code2":0,"name":"Krems","gstrasse":"stadtgraben 13","gplz":"3500","gort":"Krems","kontaktperson":"DI Dr. Matthias Slatner","gtelefon1":"02732 \/ 801-555","gtelefon2":"","fax":"02732 \/ 801-90555","email":"wirtschaft@krems.gv.at","bezeichnung_abfrage":"Wohnung","bezeichnung_abfrage_mehrzahl":"Wohnungen und H\u00e4user","email1":"bettina.auer@immo-contract.com","www":"www.immocontract.com","skype":""}]``
 - - - - 
 ##### GET wertevorrat/lage/{kategorie}  
-liefert IDs und Bezeichnungen für Feld "Lage"
+liefert IDs und Bezeichnungen fÃ¼r Feld "Lage"
     
     kategorie: "gewerbe" oder "wohnen"   
   
@@ -151,7 +152,7 @@ liefert IDs und Bezeichnungen für Feld "Lage"
 ``[{"idnr":1,"name":"Ortskern"},{"idnr":2,"name":"Ortsrand"},{"idnr":3,"name":"Gewerbegebiet"}]``
 - - - - 
 ##### GET wertevorrat/infrastrukturtechnisch/{kategorie}  
-liefert IDs und Bezeichnungen für die Auswahlfelder "Infrastrukturtechnisch"
+liefert IDs und Bezeichnungen fÃ¼r die Auswahlfelder "Infrastrukturtechnisch"
     
     kategorie: "gewerbe" oder "wohnen"   
   
@@ -162,7 +163,7 @@ liefert IDs und Bezeichnungen für die Auswahlfelder "Infrastrukturtechnisch"
 ``[{"beschreibung":"Trinkwasser","idnr":7,"wohnen":1},{"beschreibung":"Nutzwasser","idnr":8,"wohnen":1},{"beschreibung":"Strom","idnr":9,"wohnen":1}}]``
 - - - - 
 ##### GET wertevorrat/infrastrukturtverkehr  
-liefert IDs und Bezeichnungen für die Auswahlfelder "Verkehrs-Infrastruktur"
+liefert IDs und Bezeichnungen fÃ¼r die Auswahlfelder "Verkehrs-Infrastruktur"
   
 ######Beispiel:
   ``api/v1/wertevorrat/infrastrukturtverkehr``  
@@ -171,7 +172,7 @@ liefert IDs und Bezeichnungen für die Auswahlfelder "Verkehrs-Infrastruktur"
 ``[{"beschreibung":"Autobahn innerhalb 5km","idnr":1},{"beschreibung":"Schnellstra\u00dfe innerhalb 5km","idnr":2}]``
 - - - -
 ##### wertevorrat/heizungsart  
-liefert IDs und Bezeichnungen für die Option "Heizungsart"
+liefert IDs und Bezeichnungen fÃ¼r die Option "Heizungsart"
   
 ######Beispiel:
   ``api/v1/wertevorrat/heizungsart``  
@@ -180,7 +181,7 @@ liefert IDs und Bezeichnungen für die Option "Heizungsart"
 ``[{"heizungsart":"Zentralheizung","idnr":1},{"heizungsart":"Fernw\u00e4rme","idnr":2},{"heizungsart":"Etagenheizung","idnr":3}]`` 
 - - - -
 ##### GET wertevorat/brennstoffart  
-liefert IDs und Bezeichnungen für die Option "Brennstoffart"
+liefert IDs und Bezeichnungen fÃ¼r die Option "Brennstoffart"
    
 ###### Beispiel:
   ``api/v1/wertevorrat/brennstoffart``  
@@ -189,7 +190,7 @@ liefert IDs und Bezeichnungen für die Option "Brennstoffart"
 ``[{"brennstoffart":"Oel","idnr":1},{"brennstoffart":"Gas","idnr":2}]`` 
 - - - - 
 ##### GET wertevorrat/zustand  
-liefert IDs und Bezeichnungen für den Zustand einer Immobilie"
+liefert IDs und Bezeichnungen fÃ¼r den Zustand einer Immobilie"
    
 ######Beispiel:
   ``api/v1/wertevorrat/zustand``  
@@ -207,9 +208,9 @@ liefert IDs und Optionen, wie mit einem Inserenten Kontakt aufgenommen werden ka
 ``[{"idnr":0,"name":"nur Tel. und Email"},{"idnr":1,"name":"Name, Adresse, Tel., Email"},{"idnr":2,"name":"Kontakt des Ansprechpartners in der Gemeinde"}]`` 
 - - - - 
 ##### GET wertevorat/widmungsart/{bundesland} 
-liefert IDs und Bezeichnungen für die Option "Widmungsart" abhängig vom Bundesland
+liefert IDs und Bezeichnungen fÃ¼r die Option "Widmungsart" abhÃ¤ngig vom Bundesland
     
-    bundesland: erste Stelle vom Gemeindecode - 3 NÖ, 4 OÖ, 1 B, 6 STMK  
+    bundesland: erste Stelle vom Gemeindecode - 3 NÃ–, 4 OÃ–, 1 B, 6 STMK  
    
 ###### Beispiel:
   ``api/v1/wertevorrat/widmungsart/4``  
@@ -222,7 +223,7 @@ Anzahl der Objekte, die den Kriterien entsprechen
     
     regionid: die erste Stellen der Gemeindekennzahl (=Bundesland)  
     bezirk: ersten 3 Stellen des Gemeindecodes 
-    arrgemeindeid: ein Array der zu berücksichtigenden GemeindeIDs  
+    arrgemeindeid: ein Array der zu berÃ¼cksichtigenden GemeindeIDs  
     objektartid:  die Objektart(1=Gewerbegrund, 2=Gewerbeobjekt,3=Baugrund,4=Wohnobekjt) 
     miete: 1=ja, 0=nein  
     kauf: 1=ja, 0=nein
@@ -246,17 +247,17 @@ Anzahl akueller Objekte nach Bezirken in einer Region
 ``[{"bezirk":403,"anzahl":"53"},{"bezirk":408,"anzahl":"13"}]``
 - - - - 
 ##### GET suche/objektanzahl/wohnen/{regionid}/{bezirk}/{arrgemeindeid}/{objektartid}/{miete}/{kauf}/{wohnung}/{haus}/{bauernhaus}
-Anzahl der Objekte, die den Kriterien entsprechen - ergänzt um die Parameter der Subkategorien von Wohnobjekten (Haus, Wohnung, Bauernhaus)
+Anzahl der Objekte, die den Kriterien entsprechen - ergÃ¤nzt um die Parameter der Subkategorien von Wohnobjekten (Haus, Wohnung, Bauernhaus)
     
     regionid: die erste Stellen der Gemeindekennzahl (=Bundesland)  
     bezirk: ersten 3 Stellen des Gemeindecodes 
-    arrgemeindeid: ein Array von zu berücksichtigenden GemeindeIDs  
+    arrgemeindeid: ein Array von zu berÃ¼cksichtigenden GemeindeIDs  
     objektartid:  die Objektart(1=Gewerbegrund, 2=Gewerbeobjekt,3=Baugrund,4=Wohnobekjt) 
     miete: 1=ja, 0=nein  
     kauf: 1=ja, 0=nein
-    wohnung: bei Kategorie Wohnobjekt Subkategorie "Wohnung" berücksichtigen(1=ja, 0=nein)
-    haus: bei Kategorie Wohnobjekt Subkategorie "Haus" berücksichtigen (1=ja, 0=nein)
-    bauernhaus: bei Kategorie Wohnobjekt Subkategorie "Bauernhaus" berücksichtigen (1=ja, 0=nein)
+    wohnung: bei Kategorie Wohnobjekt Subkategorie "Wohnung" berÃ¼cksichtigen(1=ja, 0=nein)
+    haus: bei Kategorie Wohnobjekt Subkategorie "Haus" berÃ¼cksichtigen (1=ja, 0=nein)
+    bauernhaus: bei Kategorie Wohnobjekt Subkategorie "Bauernhaus" berÃ¼cksichtigen (1=ja, 0=nein)
   
 ###### Beispiel (Wohnobjekte im Bezirk Horn, Miete oder Kauf:
   ``api/v1/suche/objektanzahl/wohnen/0/311/0/4/1/1/1/0/1  
@@ -266,15 +267,15 @@ Anzahl der Objekte, die den Kriterien entsprechen - ergänzt um die Parameter der
 - - - - 
 ##### POST immobilie/neu/{kategorie}/{typ}
 erzeugt eine neue Immobilie (Onlineeintrag), wird beim Onlineinserat auf woiwa.at verwendet  
-Standortbeauftragte der Gemeinde werden per Mail informiert und entscheiden über Onlinefreigabe 
+Standortbeauftragte der Gemeinde werden per Mail informiert und entscheiden Ã¼ber Onlinefreigabe 
     
 **Path-Parameter**
 
     regionid: die erste Stellen der Gemeindekennzahl (=Bundesland)
     kategorie: "wohnen" oder "gewerbe"
     typ:
-       zulässige Werte bei kategorie "wohnen": wohnung, haus, bauernhaus, baugrund
-       zulässige Werte bei kategorie "gewerbe": grund, objekt
+       zulÃ¤ssige Werte bei kategorie "wohnen": wohnung, haus, bauernhaus, baugrund
+       zulÃ¤ssige Werte bei kategorie "gewerbe": grund, objekt
    
 **Body-Parameter**
      
@@ -282,7 +283,7 @@ Standortbeauftragte der Gemeinde werden per Mail informiert und entscheiden über
        {"objekt":{},"objektdetail":{},"bilder":[],"dokumente":[],"infrastrukturttechnisch":[],"infrastrukturverkehr":[]}
     
      objekt: Objektdaten (Datenfelder siehe Model Objekt im Anhang)
-     objektdetail: Objektdaten abhängig von der Objektart (Datenfelder siehe Models  Gewerbegrund/Baugrund, Gewerbeobjekt, Wohnobjekt im Anhang)
+     objektdetail: Objektdaten abhÃ¤ngig von der Objektart (Datenfelder siehe Models  Gewerbegrund/Baugrund, Gewerbeobjekt, Wohnobjekt im Anhang)
 
      bilder: Array mit urls zu den Bildern 
        Formate: gif|jpg|jpeg|png
@@ -302,20 +303,20 @@ Standortbeauftragte der Gemeinde werden per Mail informiert und entscheiden über
 ###### Ergebnis:
        
        Created: ``201`` 
-       Rückgabe der ObjektID im JSON-Format {"objektid":16292}
+       RÃ¼ckgabe der ObjektID im JSON-Format {"objektid":16292}
        
        Bad Request: ``400`` 
-       Rückgabe: "Kategorie oder Typ unbekannt"
+       RÃ¼ckgabe: "Kategorie oder Typ unbekannt"
        
        Internal Server Error: ``500``
        Ursache: Validierung der Body Parameter fehlgeschlagen
         
 ###### Anmerkung zum Testen:
-  Wenn man zum Testen der Inserataufgabe den Endpunkt der Domain dev.komsis.at verwenden, dann erhält nach einem erfolgreichen POST weder die zuständige Gemeindekein noch die
-  im Datensatz angegebene Adresse ein Bestätigungsmail.          
+  Wenn man zum Testen der Inserataufgabe den Endpunkt der Domain dev.komsis.at verwenden, dann erhÃ¤lt nach einem erfolgreichen POST weder die zustÃ¤ndige Gemeindekein noch die
+  im Datensatz angegebene Adresse ein BestÃ¤tigungsmail.          
 - - - -
 ##### POST statistik/{objektid}/{referrer}
-macht Eintrag in Zugriffsstatistik um den Aufruf eines Inserats zu zählen  
+macht Eintrag in Zugriffsstatistik um den Aufruf eines Inserats zu zÃ¤hlen  
     
     objektid: id des Aufgerufenen Objekts
     referrer: die aufrufende Quelle (M=Mostviertel Mitte,S=Standortfinder.at, H=komsis.at, X=Adminbereich, G=Gemeindehompeage, W=WOIWA)  
@@ -371,7 +372,7 @@ Gewerbegrund und Baugrund haben dieselbe Datenstruktur
     coutage: string(50)
     aufschliessung: boolean(0,1)
     aufschliessungskosten: decimal
-    verkehrserschliessung: text  (enthält Kurzbeschreibung/Besonderheiten)
+    verkehrserschliessung: text  (enthÃ¤lt Kurzbeschreibung/Besonderheiten)
     bauklasse: string(15)
     preisoeffentlich: boolean(0,1)
     widmungsartid: integer *
@@ -383,7 +384,7 @@ Gewerbegrund und Baugrund haben dieselbe Datenstruktur
 ####
     widmungvom: string(20)   
     geschosse: integer
-    verkehrserschliessung: text (enthält info zu notwendigen Sanierungen)
+    verkehrserschliessung: text (enthÃ¤lt info zu notwendigen Sanierungen)
     baujahr: string(20)
     bueroflaeche: decimal
     geschaeftsflaeche: decimal
@@ -445,7 +446,7 @@ Gewerbegrund und Baugrund haben dieselbe Datenstruktur
 
 *Minimalset: {"objektdetail":{"zustandid":1,"heizungsartid":0,"brennstoffid":0,"widmungsartid":0}}*
     
-#### Wertevorräte
+#### WertevorrÃ¤te
 
 ##### Variable Verbund
 ####
@@ -460,8 +461,8 @@ Gewerbegrund und Baugrund haben dieselbe Datenstruktur
 ####
     1 B
     2 K
-    3 NÖ
-    4 OÖ
+    3 NÃ–
+    4 OÃ–
     5 S
     6 ST
     7 T
@@ -471,4 +472,4 @@ Gewerbegrund und Baugrund haben dieselbe Datenstruktur
     11 Mostviertel
     12 Industrieviertel
     13 Translokal
-    14 NÖ-Mitte
+    14 NÃ–-Mitte
